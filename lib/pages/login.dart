@@ -1,3 +1,4 @@
+import 'package:boair/pages/userPage.dart';
 import 'package:flutter/material.dart';
 
 class LoguinPage extends StatefulWidget{
@@ -100,7 +101,7 @@ class _LoguinPage extends State<LoguinPage>{
                   hoverElevation: 4,
                   backgroundColor: Colors.white, 
                   onPressed: () {
-                    
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => UserPage()));
                   }, 
                   child: Text('Login', 
                     style: TextStyle(

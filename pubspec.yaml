@@ -16,6 +16,12 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  image_path: "assets/favicon.png"
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:
