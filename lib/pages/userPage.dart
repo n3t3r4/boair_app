@@ -9,6 +9,25 @@ class UserPage extends StatefulWidget{
 
 class _UserPage extends State<UserPage>{
 
+  int adults = 0;
+  int childs = 0;
+
+  void changePicker(int, bool){
+      if(int == adults){
+        if(bool == true){
+          adults++;
+        } else {
+        adults--;
+      } 
+    } else if (int == childs){
+      if (bool == true){
+        childs++;
+      } else {
+        childs--;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -170,9 +189,17 @@ class _UserPage extends State<UserPage>{
                           Text('Adults (12y+)'),
                           Row(
                             children: [
-                              IconButton(onPressed: null, icon: Icon(Icons.remove)),
-                              Text('0'),
-                              IconButton(onPressed: null, icon: Icon(Icons.add)),
+                              IconButton(onPressed: (){
+                                setState(() {
+                                  changePicker(adults, false);
+                                });
+                              }, icon: Icon(Icons.remove)),
+                              Text(adults.toString()),
+                              IconButton(onPressed: (){
+                                setState(() {
+                                  changePicker(adults, true);
+                                });
+                              }, icon: Icon(Icons.add)),
                             ],
                           )
                         ],
@@ -182,9 +209,17 @@ class _UserPage extends State<UserPage>{
                           Text('Childs (2 to 12y)'),
                           Row(
                             children: [
-                              IconButton(onPressed: null, icon: Icon(Icons.remove)),
-                              Text('0'),
-                              IconButton(onPressed: null, icon: Icon(Icons.add)),
+                              IconButton(onPressed: (){
+                                setState(() {
+                                  changePicker(childs, false);
+                                });
+                              }, icon: Icon(Icons.remove)),
+                              Text(childs.toString()),
+                              IconButton(onPressed: (){
+                                setState(() {
+                                  changePicker(childs, true);
+                                });
+                              }, icon: Icon(Icons.add)),
                             ],
                           )
                         ],
@@ -207,23 +242,23 @@ class _UserPage extends State<UserPage>{
                 ),
                 Center(
                   child: TextButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(Color.fromRGBO(21,104,180,1)),
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(9),
-                                side: BorderSide(color: Colors.white,),
-                              )
-                            )
-                          ),
-                          onPressed: () {
-                            
-                          }, 
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 6.0, right: 6.0,),
-                            child: Text('Search Flights', style: TextStyle(color: Colors.white, fontSize: 12),),
-                          ),
-                        ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Color.fromRGBO(21,104,180,1)),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(9),
+                          side: BorderSide(color: Colors.white,),
+                        )
+                      )
+                    ),
+                    onPressed: () {
+                      
+                    }, 
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 6.0, right: 6.0,),
+                      child: Text('Search Flights', style: TextStyle(color: Colors.white, fontSize: 12),),
+                    ),
+                  ),
                 )
                 ],
               ),
