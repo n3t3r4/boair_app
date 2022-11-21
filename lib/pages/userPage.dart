@@ -16,14 +16,18 @@ class _UserPage extends State<UserPage>{
       if(int == adults){
         if(bool == true){
           adults++;
-        } else {
+        } else if(adults != 0){
         adults--;
-      } 
+      } else {
+        Null;
+      }
     } else if (int == childs){
       if (bool == true){
         childs++;
-      } else {
+      } else if(childs != 0){
         childs--;
+      } else {
+        Null;
       }
     }
   }
@@ -103,7 +107,9 @@ class _UserPage extends State<UserPage>{
                           child: Text('One Way', style: TextStyle(color: Colors.white),),
                           ),
                       ),
-                      TextButton(onPressed: null, child: Text('Round Trip', style: TextStyle(color: Color.fromRGBO(21,104,180,1)),),),
+                      TextButton(
+                          onPressed: null, 
+                          child: Text('Round Trip', style: TextStyle(color: Color.fromRGBO(21,104,180,1)),),),
                     ],
                   ),
                 ),
@@ -126,7 +132,8 @@ class _UserPage extends State<UserPage>{
                               Text('City, State'),
                             ],
                           ),
-                          IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_down),)
+                          DropdownButton(items: null, onChanged: null),
+                          // IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_down),),
                         ],
                       ),
                     ),
@@ -173,7 +180,8 @@ class _UserPage extends State<UserPage>{
                               Text('City, State'),
                             ],
                           ),
-                          IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_down),)
+                          DropdownButton(items: null, onChanged: null),
+                          // IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_down),)
                         ],
                       ),
                     ),
