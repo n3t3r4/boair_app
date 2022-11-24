@@ -1,16 +1,10 @@
-# boair
+# Boair App
 
-A new Flutter project.
+Project build based on a Dribbble design.<br>
+Original Project:<br>
+https://dribbble.com/shots/19846712-Flight-Booking-App<br><br>
+Screenshots:<br>
+<img src="https://github.com/n3t3r4/boair_app/blob/Main/assets/screenshots/Screenshot_1.png" width="250">
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://github.com/n3t3r4/boair_app/blob/Main/assets/screenshots/Screenshot_2.png" width="250">
+ 
