@@ -30,7 +30,7 @@ class _LoguinPage extends State<LoguinPage>{
                   scale: 0.7,
                   child: Image(image: AssetImage('assets/logo.png'),)),),
                 Padding(
-                  padding: const EdgeInsets.only(top: 13, left: 150.0),
+                  padding: const EdgeInsets.only(top: 25, left: 150.0),
                   child: Center(child: Transform.scale(
                     scale: 1.8,
                     child: Image(image: AssetImage('assets/aeroplane.png'),)),),
@@ -39,7 +39,7 @@ class _LoguinPage extends State<LoguinPage>{
                   height: 23,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25.0, right: 90),
+                  padding: const EdgeInsets.only(left: 25.0, right: 90, top: 37),
                   child: Container(
                     alignment: Alignment.centerLeft,
                     child: Text('We Are Making Travel Easy', style: TextStyle(color: Colors.white, fontSize: 35, fontFamily: 'MavenPro'),),
@@ -95,13 +95,31 @@ class _LoguinPage extends State<LoguinPage>{
                   ),
                 ),
                 SizedBox(
-                  height: 7,
+                  height: 40,
                 ),
                 FloatingActionButton.large(
                   hoverElevation: 4,
                   backgroundColor: Colors.white, 
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => UserPage()));
+                    Navigator.push(context, PageRouteBuilder(
+                      transitionDuration: Duration(milliseconds: 623),
+                      transitionsBuilder: (BuildContext
+                        context,
+                        Animation<double> animation, 
+                        Animation<double> secondaryAnimation,
+                        Widget child) {
+
+                          animation = CurvedAnimation(parent: animation, curve: Curves.easeIn);
+
+                          return ScaleTransition(
+                            alignment: Alignment.bottomCenter,
+                            scale: animation,
+                            child: child,
+                            );
+                          }
+                        , pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) { return UserPage(); }
+                    ),);
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => UserPage()));
                   }, 
                   child: Text('Login', 
                     style: TextStyle(

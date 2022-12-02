@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+List<String> city = <String>['City #1', 'City #2', 'City #3', 'City #4', 'City #5'];
+
 class UserPage extends StatefulWidget{
 
   @override
@@ -31,6 +33,11 @@ class _UserPage extends State<UserPage>{
       }
     }
   }
+
+
+  String dropdownValueFrom = city.first;
+
+  String dropdownValueTo = city[1];
 
   @override
   Widget build(BuildContext context){
@@ -99,7 +106,10 @@ class _UserPage extends State<UserPage>{
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(right: 8.0),
-                        child: TextButton(
+                        child: 
+                        
+                        
+                        TextButton(
                           style: ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(Color.fromRGBO(21,104,180,1)),
                           ),
@@ -107,14 +117,19 @@ class _UserPage extends State<UserPage>{
                           child: Text('One Way', style: TextStyle(color: Colors.white),),
                           ),
                       ),
+
+
                       TextButton(
                           onPressed: null, 
-                          child: Text('Round Trip', style: TextStyle(color: Color.fromRGBO(21,104,180,1)),),),
+                          child: Text('Round Trip', style: TextStyle(color: Color.fromRGBO(21,104,180,1)),
+                          ),
+                        ),
+                        
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 59,
+                  height: 88,
                   width: MediaQuery.of(context).size.width - 40,
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -122,22 +137,31 @@ class _UserPage extends State<UserPage>{
                       borderRadius: BorderRadius.circular(13)),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('From'),
-                              Text('City, State'),
-                            ],
-                          ),
-                          DropdownButton(items: null, onChanged: null),
-                          // IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_down),),
-                        ],
+                      child:                      
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                              const Text('From'),
+
+                              DropdownButton<String>(
+                              value: dropdownValueFrom, 
+                              icon: const Icon(Icons.arrow_drop_down),
+                              onChanged: (String? value) {
+                                  setState(() {
+                                    dropdownValueFrom = value!;
+                                  });
+                                },
+                              items: city.map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem(
+                                  value: value,
+                                  child: Text(value),
+                                  );
+                              }).toList(),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ),
+                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -162,7 +186,7 @@ class _UserPage extends State<UserPage>{
                   ),
                 ),
                 SizedBox(
-                  height: 59,
+                  height: 88,
                   width: MediaQuery.of(context).size.width - 40,
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -170,22 +194,31 @@ class _UserPage extends State<UserPage>{
                       borderRadius: BorderRadius.circular(13)),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('To'),
-                              Text('City, State'),
-                            ],
-                          ),
-                          DropdownButton(items: null, onChanged: null),
-                          // IconButton(onPressed: () {}, icon: Icon(Icons.arrow_drop_down),)
-                        ],
+                      child:                      
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                              const Text('To'),
+
+                              DropdownButton<String>(
+                              value: dropdownValueTo, 
+                              icon: const Icon(Icons.arrow_drop_down),
+                              onChanged: (String? value) {
+                                  setState(() {
+                                    dropdownValueTo = value!;
+                                  });
+                                },
+                              items: city.map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem(
+                                  value: value,
+                                  child: Text(value),
+                                  );
+                              }).toList(),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ),
+                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(13.0),
